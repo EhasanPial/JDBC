@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="mysql.connector.java" type="repository">
+    <properties maven-id="mysql:mysql-connector-java:LATEST">
+      <exclude>
+        <dependency maven-id="com.google.protobuf:protobuf-java" />
+      </exclude>
+    </properties>
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/mysql/mysql-connector-j/8.0.32/mysql-connector-j-8.0.32.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
