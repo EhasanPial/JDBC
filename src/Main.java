@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 public class Main {
     public static void main(String[] args) {
@@ -62,6 +63,47 @@ public class Main {
 
     }
 }
+
+class Update {
+    public static void main(String[] args) {
+        try {
+            String url = "jdbc:mysql://localhost:3306/Youtube";
+            String userName = "root" ;
+            String password = "12345678";
+            Connection con = DriverManager.getConnection(url,userName,password);
+            if(con.isClosed()){
+                System.out.println("Connection is closed");
+            }
+            else {
+                System.out.println("Connection is created...");
+            }
+
+            // query
+            String q = "update table1 set tName=?, tCity=? where tId=?";
+            BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Enter new name: ");
+            String name = bf.readLine();
+            System.out.println("Enter city: ");
+            String city = bf.readLine() ;
+
+            System.out.println("Student id: ");
+            int id = Integer.parseInt(bf.readLine()) ;
+
+            PreparedStatement ps = con.prepareStatement(q) ;
+            ps.setString(1,name);
+            ps.setString(2,city);
+            ps.setInt(3,id);
+
+            ps.executeUpdate();
+            System.out.println("done..................");
+
+
+        }
+        catch (Exception ignored) {}
+
+    }
+}
+
 
 
 
